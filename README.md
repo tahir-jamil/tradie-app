@@ -69,3 +69,10 @@ export enum StatusEnum {
   'completed',
 }
 ```
+# Steps to run the project
+- clone repo
+- npm install
+- ng serve -o --port
+
+# Build Commands
+- ng build
