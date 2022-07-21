@@ -1,0 +1,181 @@
+<div style="display:flex">
+  <div style="width: 5%;"></div>
+
+  <div style="width: 45%;" class="bg-white  mb-5 rounded-lg shadow ">
+    <div class="px-2 py-8 sm:px-10">
+      <div class="relative mt-6">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-gray-300">
+          </div>
+        </div>
+        <div class="relative flex justify-center text-sm leading-5">
+          <span class="px-2 text-gray-500 bg-white">
+            Add Job Info
+          </span>
+        </div>
+      </div>
+      <div class="mt-6">
+        <div class="w-full space-y-6" [formGroup]="jobForm">
+          <div class="w-full">
+            <div class=" relative ">
+              <input formControlName="name" type="text" id="search-form-price"
+                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                placeholder="Job Title" />
+            </div>
+          </div>
+          <div class="w-full">
+            <div class=" relative ">
+              <input formControlName="description" type="text" id="search-form-location"
+                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                placeholder="Description" />
+            </div>
+          </div>
+          <div class="w-full">
+            <div class=" relative ">
+              <input formControlName="company" type="text" id="search-form-name"
+                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                placeholder="Company Name" />
+            </div>
+          </div>
+          <div class="w-full">
+            <div class=" relative ">
+              <div class="w-full  ">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                  State
+                </label>
+                <div class="relative">
+                  <select formControlName="status"
+                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-state">
+                    <option>scheduled</option>
+                    <option>active</option>
+                    <option>invoicing</option>
+                    <option>to priced</option>
+                    <option>completed</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative mt-6">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-gray-300">
+          </div>
+        </div>
+        <div class="relative flex justify-center text-sm leading-5">
+          <span class="px-2 text-gray-500 bg-white">
+            Add Client Info
+          </span>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <div class="w-full space-y-6" [formGroup]="clientForm">
+          <div class="w-full">
+            <div class=" relative ">
+              <input formControlName="name" type="text" id="search-form-price"
+                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                placeholder="Name" />
+            </div>
+          </div>
+          <div class="w-full">
+            <div class=" relative ">
+              <input formControlName="email" type="text" id="search-form-location"
+                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                placeholder="Email" />
+            </div>
+          </div>
+          <div class="w-full">
+            <div class=" relative ">
+              <input formControlName="contact" type="text" id="search-form-name"
+                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                placeholder="Contact" />
+            </div>
+          </div>
+
+          <div>
+            <span class="block w-full rounded-md shadow-sm">
+              <button type="button" (click)="onSubmit()"
+                class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                {{ !jobDetail ? 'Create New Job': 'Update Job'}}
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="width: 5%;"></div>
+  <div style="width: 40%;">
+
+    <div class="bg-white  mb-5 rounded-lg shadow " *ngIf="jobDetail">
+      <div class="px-2 py-8 sm:px-10">
+        <div class="relative mt-6">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300">
+            </div>
+          </div>
+          <div class="relative flex justify-center text-sm leading-5">
+            <span class="px-2 text-gray-500 bg-white">
+              Add Note
+            </span>
+          </div>
+        </div>
+        <div class="mt-6">
+          <div class="w-full space-y-6" [formGroup]="noteForm">
+            <div class="w-full">
+              <div class=" relative ">
+                <input formControlName="title" type="text" id="search-form-price"
+                  class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                  placeholder="Job Title" />
+              </div>
+            </div>
+
+            <div>
+              <span class="block w-full rounded-md shadow-sm">
+                <button type="button" (click)="onSubmitNote()"
+                  class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                  {{ addNewNote ? 'Add Note': 'Update Note'}}
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div *ngFor="let item of currentJob?.notes" class="item-row">
+          <div class="px-5 py-5 border-b border-gray-200 bg-white text-sm ">
+            <div class="flex items-center">
+              <div class="ml-3" style="display:flex;width:100%; justify-content: space-between">
+                <div class="text-gray-900 whitespace-no-wrap">
+                  {{item?.title}}
+                </div>
+
+                <div style="display: flex">
+                  <a (click)="onEditNote(item)" class="text-indigo-600 hover:text-indigo-900">
+                    Edit
+                  </a>
+                  <a (click)="onDeleteNote(item)" style="margin-left: 10px"
+                    class=" text-indigo-600 hover:text-indigo-900">
+                    Delete
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div style="width: 5%;"></div>
+</div>
